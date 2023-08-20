@@ -1,5 +1,5 @@
-#ifndef TASKMANAGERUI_H
-#define TASKMANAGERUI_H
+#ifndef SRC_TASKMANAGERUI_H_
+#define SRC_TASKMANAGERUI_H_
 
 #include "consolepainter.h"
 #include "taskmanager.h"
@@ -21,4 +21,4 @@ class TaskManagerUI {
   ConsolePainter consolePainter;
 };
 
-#endif  // TASKMANAGERUI_H
+#endif  // SRC_TASKMANAGERUI_H_

@@ -1,5 +1,5 @@
-#ifndef TASKMANAGER_H
-#define TASKMANAGER_H
+#ifndef SRC_TASKMANAGER_H_
+#define SRC_TASKMANAGER_H_
 
 #include <pqxx/pqxx>
 #include <string>
@@ -29,4 +29,4 @@ class TaskManager {
   int GetRealTaskId(int user_task_id);
 };
 
-#endif  // TASKMANAGER_H
+#endif  // SRC_TASKMANAGER_H_
