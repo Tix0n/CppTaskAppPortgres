@@ -133,11 +133,13 @@ bool TaskManager::DeleteTask(int user_task_id) {
   txn.exec_params("DELETE FROM task_mapping WHERE user_id = $1", user_task_id);
 
   pqxx::result result = txn.exec("SELECT MAX(user_id) FROM task_mapping");
-  int maxUserId = result[0][0].as<int>();
+  if (!result[0][0].is_null()) {
+    int maxUserId = result[0][0].as<int>();
 
-  for (int i = user_task_id + 1; i <= maxUserId; ++i) {
-    txn.exec_params("UPDATE task_mapping SET user_id = $1 WHERE user_id = $2",
-                    i - 1, i);
+    for (int i = user_task_id + 1; i <= maxUserId; ++i) {
+      txn.exec_params("UPDATE task_mapping SET user_id = $1 WHERE user_id = $2",
+                      i - 1, i);
+    }
   }
 
   txn.exec_params("DELETE FROM tasks WHERE id = $1", real_task_id);

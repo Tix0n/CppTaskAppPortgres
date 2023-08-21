@@ -20,7 +20,7 @@ void ConsolePainter::DrawBoxWithText(const std::string& text,
   std::string word;
   std::string line;
   while (iss >> word) {
-    if (line.size() + word.size() + 1 <= kDefaultWidth - 2) {
+    if (line.size() + word.size() + 2 <= kDefaultWidth - 2) {
       if (!line.empty()) {
         line += " ";
       }
